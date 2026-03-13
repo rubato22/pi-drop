@@ -50,7 +50,7 @@ Requires=tailscaled.service
 
 [Service]
 Type=simple
-User=$REAL_USER
+User=root
 ExecStart=/usr/bin/tailscale file get --loop "$TAILDROP_DIR"
 Restart=on-failure
 RestartSec=10
