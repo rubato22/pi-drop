@@ -14,3 +14,31 @@ Because Windows blocks downloaded scripts by default, you need to run a bypass c
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; .\setup_taildrop_windows.ps1
+
+===============================================
+
+### 🛑 How to Stop or Uninstall the Daemon
+
+If you ever want to pause the background listener or remove it completely, run the following commands:
+
+#### For Linux (Raspberry Pi / Ubuntu):
+Open your terminal and run:
+
+# Stop the daemon right now
+sudo systemctl stop taildrop-automator
+
+# Prevent it from starting up again on reboot
+sudo systemctl disable taildrop-automator
+
+# (Optional) Delete the service file entirely
+sudo rm /etc/systemd/system/taildrop-automator.service
+sudo systemctl daemon-reload
+
+=============================================
+
+For Windows.
+# Stop the background task
+Stop-ScheduledTask -TaskName "PiDrop_AutoReceive" -ErrorAction SilentlyContinue
+
+# Delete the task completely
+Unregister-ScheduledTask -TaskName "PiDrop_AutoReceive" -Confirm:$false -ErrorAction SilentlyContinue
