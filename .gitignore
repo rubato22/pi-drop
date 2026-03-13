@@ -1,0 +1,9 @@
+# Logs and state
+*.log
+
+# Environments
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
