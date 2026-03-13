@@ -62,7 +62,8 @@ EOL
 # 5. Enable and start the Daemon
 echo -e "${GREEN}[*] Activating Pi-Drop Daemon...${NC}"
 sudo systemctl daemon-reload
-sudo systemctl enable --now taildrop-automator
+sudo systemctl enable taildrop-automator
+sudo systemctl restart taildrop-automator
 
 echo ""
 echo -e "${BOLD}====================================================${NC}"
