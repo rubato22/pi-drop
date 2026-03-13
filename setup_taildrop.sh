@@ -51,7 +51,7 @@ Requires=tailscaled.service
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/tailscale file get --loop "$TAILDROP_DIR"
+ExecStart=/bin/bash -c "while true; do /usr/bin/tailscale file get \"$TAILDROP_DIR\"; chown -R $REAL_USER:$REAL_USER \"$TAILDROP_DIR\"; chmod -R 755 \"$TAILDROP_DIR\"; sleep 5; done"
 Restart=on-failure
 RestartSec=10
 
